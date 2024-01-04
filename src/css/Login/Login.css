@@ -25,6 +25,14 @@ body {
   height: 100%;
 }
 
+.swift-login-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+}
+
 .swift-login {
   display: flex;
   flex-direction: row;
@@ -32,7 +40,23 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding: 50px 55px;
+  padding: 0px 55px 50px 55px;
+}
+
+.backButton-div {
+  width: 100%;
+}
+
+.backButton {
+  width: 14.152px;
+  height: 25px;
+  flex-shrink: 0;
+  fill: rgba(1, 22, 39, 0.5);
+  padding-left: 55px;
+}
+
+svg:hover {
+  cursor: pointer;
 }
 
 .swift-login-info-wrapper {

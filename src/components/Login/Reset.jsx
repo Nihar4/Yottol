@@ -5,13 +5,11 @@ import CustomButton from "../CustomComponents/CustomButton/CustomButton";
 import CustomError from "../CustomComponents/CustomError/CustomError";
 import Info from "../CustomComponents/Info";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../CustomComponents/BackButton";
 
 const Reset = () => {
   const navigate = useNavigate();
 
-  const handleBackClick = () => {
-    navigate(-1);
-  };
   const [formValues, setFormValues] = useState({});
 
   const [otperror, setOtpError] = useState("error");
@@ -91,113 +89,118 @@ const Reset = () => {
   };
 
   return (
-    <div className="swift-login">
-      <Info />
-      <div className="swift-login-form">
-        <div className="swift-login-form-div-1">
-          <div className="swift-login-form-heading">
-            <p>
-              <i style={{ fontWeight: 300 }}>swift</i>
-              folios
-            </p>
+    <div className="swift-login-main">
+      <BackButton />
+      <div className="swift-login">
+        <Info />
+        <div className="swift-login-form">
+          <div className="swift-login-form-div-1">
+            <div className="swift-login-form-heading">
+              <p>
+                <i style={{ fontWeight: 300 }}>swift</i>
+                folios
+              </p>
+            </div>
+            <div className="swift-login-form-reset">
+              <p>Reset PIN</p>
+            </div>
+            <div className="swift-login-form-otp">
+              <button
+                className="swift-login-form-generate"
+                onClick={handleGenerateOtp}
+                disabled={isButtonDisabled}
+                style={{ cursor: isButtonDisabled ? "not-allowed" : "pointer" }}
+              >
+                Generate OTP
+              </button>
+              <p
+                className="swift-login-form-wait"
+                style={{ visibility: textVisible ? "visible" : "hidden" }}
+              >
+                Wait for {countdown}s to generate again
+              </p>
+            </div>
+            <CustomInput
+              labelText="One Time Password"
+              type="number"
+              classname="swift-login-form-otp-input"
+              name="otp"
+              placeholder="123456"
+              maxLength="6"
+              errormsg="OTP should be atleast 6 digits "
+              onInputChange={handleInputChange}
+              style={{ visibility: otpVisible ? "visible" : "hidden" }}
+            />
+            <CustomError
+              errorText={otperror}
+              style={{
+                visibility: otperror != "error" ? "visible" : "hidden",
+                // visibility: otperror ? "visible" : "hidden",
+              }}
+            />
+            <CustomButton
+              text="Validate"
+              style={{
+                width: "90px",
+                padding: "10px 20px",
+                margin: "10px 0px",
+                fontSize: "14px",
+                letterSpacing: "-0.7px",
+                visibility: otpVisible ? "visible" : "hidden",
+              }}
+              onClick={handleValidate}
+            />
+            <CustomInput
+              labelText="PIN"
+              type="number"
+              name="pin"
+              classname="swift-login-form-pin-input"
+              placeholder="1235"
+              maxLength="4"
+              errormsg="PIN should be atleast 4 digits"
+              onInputChange={handleInputChange}
+              style={{ visibility: pinVisible ? "visible" : "hidden" }}
+            />
+            <CustomError
+              errorText={pinerror}
+              style={{
+                visibility: pinerror != "error" ? "visible" : "hidden",
+                // visibility: pinerror ? "visible" : "hidden",
+              }}
+            />
+            <CustomInput
+              labelText="Confirm PIN"
+              type="number"
+              name="confirmpin"
+              classname="swift-login-form-confirmpin-input"
+              placeholder="1235"
+              maxLength="4"
+              errormsg="PIN should be atleast 4 digits"
+              onInputChange={handleInputChange}
+              style={{
+                marginTop: "9px",
+                visibility: pinVisible ? "visible" : "hidden",
+              }}
+            />
+            <CustomError
+              errorText={confirmpinerror}
+              style={{
+                visibility: confirmpinerror != "error" ? "visible" : "hidden",
+                // visibility: confirmpinerror ? "visible" : "hidden",
+              }}
+            />
           </div>
-          <div className="swift-login-form-reset">
-            <p>Reset PIN</p>
-          </div>
-          <div className="swift-login-form-otp">
-            <button
-              className="swift-login-form-generate"
-              onClick={handleGenerateOtp}
-              disabled={isButtonDisabled}
-              style={{ cursor: isButtonDisabled ? "not-allowed" : "pointer" }}
-            >
-              Generate OTP
-            </button>
-            <p
-              className="swift-login-form-wait"
-              style={{ visibility: textVisible ? "visible" : "hidden" }}
-            >
-              Wait for {countdown}s to generate again
-            </p>
-          </div>
-          <CustomInput
-            labelText="One Time Password"
-            type="number"
-            classname="swift-login-form-otp-input"
-            name="otp"
-            placeholder="123456"
-            maxLength="6"
-            errormsg="OTP should be atleast 6 digits "
-            onInputChange={handleInputChange}
-            style={{ visibility: otpVisible ? "visible" : "hidden" }}
-          />
-          <CustomError
-            errorText={otperror}
-            style={{
-              visibility: otperror != "error" ? "visible" : "hidden",
-              // visibility: otperror ? "visible" : "hidden",
-            }}
-          />
+
           <CustomButton
-            text="Validate"
+            text="Reset"
+            className="swift-login-form-btn"
+            onClick={handleSubmit}
+            disabled={isResetButtonDisabled}
             style={{
-              width: "90px",
-              padding: "10px 20px",
-              margin: "10px 0px",
-              fontSize: "14px",
-              letterSpacing: "-0.7px",
-              visibility: otpVisible ? "visible" : "hidden",
-            }}
-            onClick={handleValidate}
-          />
-          <CustomInput
-            labelText="PIN"
-            type="number"
-            name="pin"
-            classname="swift-login-form-pin-input"
-            placeholder="1235"
-            maxLength="4"
-            errormsg="PIN should be atleast 4 digits"
-            onInputChange={handleInputChange}
-            style={{ visibility: pinVisible ? "visible" : "hidden" }}
-          />
-          <CustomError
-            errorText={pinerror}
-            style={{
-              visibility: pinerror != "error" ? "visible" : "hidden",
-              // visibility: pinerror ? "visible" : "hidden",
-            }}
-          />
-          <CustomInput
-            labelText="Confirm PIN"
-            type="number"
-            name="confirmpin"
-            classname="swift-login-form-confirmpin-input"
-            placeholder="1235"
-            maxLength="4"
-            errormsg="PIN should be atleast 4 digits"
-            onInputChange={handleInputChange}
-            style={{
-              marginTop: "9px",
-              visibility: pinVisible ? "visible" : "hidden",
-            }}
-          />
-          <CustomError
-            errorText={confirmpinerror}
-            style={{
-              visibility: confirmpinerror != "error" ? "visible" : "hidden",
-              // visibility: confirmpinerror ? "visible" : "hidden",
+              cursor: isResetButtonDisabled ? "not-allowed" : "default",
             }}
           />
         </div>
-        {/* <button onClick={handleBackClick}>Go Back</button> */}
-        <CustomButton
-          text="Reset"
-          className="swift-login-form-btn"
-          onClick={handleSubmit}
-          disabled={isResetButtonDisabled}
-          style={{ cursor: isResetButtonDisabled ? "not-allowed" : "default" }}
-        />
       </div>
     </div>
   );

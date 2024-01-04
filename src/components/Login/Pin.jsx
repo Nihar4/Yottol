@@ -5,13 +5,11 @@ import CustomButton from "../CustomComponents/CustomButton/CustomButton";
 import CustomError from "../CustomComponents/CustomError/CustomError";
 import Info from "../CustomComponents/Info";
 import { Link, useNavigate } from "react-router-dom";
+import BackButton from "../CustomComponents/BackButton";
 
 const Pin = () => {
   const navigate = useNavigate();
 
-  const handleBackClick = () => {
-    navigate(-1);
-  };
   const [formValues, setFormValues] = useState({});
   const [pinerror, setPinError] = useState("error");
 
@@ -30,42 +28,47 @@ const Pin = () => {
   };
 
   return (
-    <div className="swift-login">
-      <Info />
-      <div className="swift-login-form">
-        <div className="swift-login-form-div-1">
-          <div className="swift-login-loginform-heading">
-            <p>
-              <i style={{ fontWeight: 300 }}>swift</i>
-              folios
-            </p>
+    <div className="swift-login-main">
+      <BackButton />
+      <div className="swift-login">
+        <Info />
+        <div className="swift-login-form">
+          <div className="swift-login-form-div-1">
+            <div className="swift-login-loginform-heading">
+              <p>
+                <i style={{ fontWeight: 300 }}>swift</i>
+                folios
+              </p>
+            </div>
+
+            <CustomInput
+              labelText="Pin"
+              type="number"
+              classname="swift-login-form-pin-input"
+              name="pin"
+              placeholder="1234"
+              onInputChange={handleInputChange}
+              style={{}}
+            />
+            <div className="swift-login-form-error">
+              <CustomError
+                errorText={pinerror}
+                style={{
+                  visibility: pinerror != "error" ? "visible" : "hidden",
+                }}
+              />
+              <Link to="/reset">
+                <button className="swift-login-form-generate">Reset PIN</button>
+              </Link>
+            </div>
           </div>
 
-          <CustomInput
-            labelText="Pin"
-            type="number"
-            classname="swift-login-form-pin-input"
-            name="pin"
-            placeholder="1234"
-            onInputChange={handleInputChange}
-            style={{}}
+          <CustomButton
+            text="Login"
+            className="swift-login-form-btn"
+            onClick={handleSubmit}
           />
-          <div className="swift-login-form-error">
-            <CustomError
-              errorText={pinerror}
-              style={{ visibility: pinerror != "error" ? "visible" : "hidden" }}
-            />
-            <Link to="/reset">
-              <button className="swift-login-form-generate">Reset PIN</button>
-            </Link>
-          </div>
         </div>
-        {/* <button onClick={handleBackClick}>Go Back</button> */}
-        <CustomButton
-          text="Login"
-          className="swift-login-form-btn"
-          onClick={handleSubmit}
-        />
       </div>
     </div>
   );

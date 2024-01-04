@@ -5,6 +5,7 @@ import CustomButton from "../CustomComponents/CustomButton/CustomButton";
 import CustomError from "../CustomComponents/CustomError/CustomError";
 import Info from "../CustomComponents/Info";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../CustomComponents/BackButton";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -89,72 +90,77 @@ const Login = () => {
   };
 
   return (
-    <div className="swift-login">
-      <Info />
-      <div className="swift-login-form">
-        <div className="swift-login-form-div-1">
-          <div className="swift-login-loginform-heading">
-            <p>
-              <i style={{ fontWeight: 300 }}>swift</i>
-              folios
-            </p>
+    <div className="swift-login-main">
+      <BackButton />
+      <div className="swift-login">
+        <Info />
+        <div className="swift-login-form">
+          <div className="swift-login-form-div-1">
+            <div className="swift-login-loginform-heading">
+              <p>
+                <i style={{ fontWeight: 300 }}>swift</i>
+                folios
+              </p>
+            </div>
+
+            <CustomInput
+              labelText="Email"
+              type="email"
+              classname="swift-login-form-email-input"
+              name="email"
+              placeholder="abc@gmail.com"
+              onInputChange={handleInputChange}
+              style={{}}
+            />
+            <CustomError
+              errorText={emailerror}
+              style={{
+                visibility: emailerror != "error" ? "visible" : "hidden",
+              }}
+            />
+
+            <div className="swift-login-loginform-otp">
+              <button
+                className="swift-login-form-generate"
+                onClick={handleGenerateOtp}
+                disabled={isButtonDisabled}
+                style={{ cursor: isButtonDisabled ? "not-allowed" : "pointer" }}
+              >
+                Generate OTP
+              </button>
+              <p
+                className="swift-login-form-wait"
+                style={{ visibility: textVisible ? "visible" : "hidden" }}
+              >
+                Wait for {countdown}s to generate again
+              </p>
+            </div>
+
+            <CustomInput
+              labelText="One Time Password"
+              type="number"
+              classname="swift-login-form-otp-input"
+              name="otp"
+              placeholder="123456"
+              maxLength="6"
+              errormsg="OTP should be atleast 6 digits "
+              onInputChange={handleInputChange}
+              style={{ visibility: otpVisible ? "visible" : "hidden" }}
+            />
+            <CustomError
+              errorText={otperror}
+              style={{ visibility: otperror != "error" ? "visible" : "hidden" }}
+            />
           </div>
-
-          <CustomInput
-            labelText="Email"
-            type="email"
-            classname="swift-login-form-email-input"
-            name="email"
-            placeholder="abc@gmail.com"
-            onInputChange={handleInputChange}
-            style={{}}
-          />
-          <CustomError
-            errorText={emailerror}
-            style={{ visibility: emailerror != "error" ? "visible" : "hidden" }}
-          />
-
-          <div className="swift-login-loginform-otp">
-            <button
-              className="swift-login-form-generate"
-              onClick={handleGenerateOtp}
-              disabled={isButtonDisabled}
-              style={{ cursor: isButtonDisabled ? "not-allowed" : "pointer" }}
-            >
-              Generate OTP
-            </button>
-            <p
-              className="swift-login-form-wait"
-              style={{ visibility: textVisible ? "visible" : "hidden" }}
-            >
-              Wait for {countdown}s to generate again
-            </p>
-          </div>
-
-          <CustomInput
-            labelText="One Time Password"
-            type="number"
-            classname="swift-login-form-otp-input"
-            name="otp"
-            placeholder="123456"
-            maxLength="6"
-            errormsg="OTP should be atleast 6 digits "
-            onInputChange={handleInputChange}
-            style={{ visibility: otpVisible ? "visible" : "hidden" }}
-          />
-          <CustomError
-            errorText={otperror}
-            style={{ visibility: otperror != "error" ? "visible" : "hidden" }}
+          {/* <button onClick={handleBackClick}>Go Back</button> */}
+          <CustomButton
+            text="Next"
+            className="swift-login-form-btn"
+            onClick={handleSubmit}
+            disabled={isNextButtonDisabled}
+            style={{ cursor: isNextButtonDisabled ? "not-allowed" : "default" }}
           />
         </div>
-        {/* <button onClick={handleBackClick}>Go Back</button> */}
-        <CustomButton
-          text="Next"
-          className="swift-login-form-btn"
-          onClick={handleSubmit}
-          disabled={isNextButtonDisabled}
-          style={{ cursor: isNextButtonDisabled ? "not-allowed" : "default" }}
-        />
       </div>
     </div>
   );
