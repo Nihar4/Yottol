@@ -30,11 +30,11 @@ const Pin = () => {
   };
 
   return (
-    <div className="swift-main">
+    <div className="swift-login">
       <Info />
-      <div className="swift-main-form">
-        <div className="swift-main-form-div-1">
-          <div className="swift-main-loginform-heading">
+      <div className="swift-login-form">
+        <div className="swift-login-form-div-1">
+          <div className="swift-login-loginform-heading">
             <p>
               <i style={{ fontWeight: 300 }}>swift</i>
               folios
@@ -44,26 +44,26 @@ const Pin = () => {
           <CustomInput
             labelText="Pin"
             type="number"
-            classname="swift-main-form-pin-input"
+            classname="swift-login-form-pin-input"
             name="pin"
             placeholder="1234"
             onInputChange={handleInputChange}
             style={{}}
           />
-          <div className="swift-main-form-error">
+          <div className="swift-login-form-error">
             <CustomError
               errorText={pinerror}
               style={{ visibility: pinerror != "error" ? "visible" : "hidden" }}
             />
             <Link to="/reset">
-              <button className="swift-main-form-generate">Reset PIN</button>
+              <button className="swift-login-form-generate">Reset PIN</button>
             </Link>
           </div>
         </div>
         {/* <button onClick={handleBackClick}>Go Back</button> */}
         <CustomButton
           text="Login"
-          className="swift-main-form-btn"
+          className="swift-login-form-btn"
           onClick={handleSubmit}
         />
       </div>

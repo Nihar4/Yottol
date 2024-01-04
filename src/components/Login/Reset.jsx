@@ -91,22 +91,22 @@ const Reset = () => {
   };
 
   return (
-    <div className="swift-main">
+    <div className="swift-login">
       <Info />
-      <div className="swift-main-form">
-        <div className="swift-main-form-div-1">
-          <div className="swift-main-form-heading">
+      <div className="swift-login-form">
+        <div className="swift-login-form-div-1">
+          <div className="swift-login-form-heading">
             <p>
               <i style={{ fontWeight: 300 }}>swift</i>
               folios
             </p>
           </div>
-          <div className="swift-main-form-reset">
+          <div className="swift-login-form-reset">
             <p>Reset PIN</p>
           </div>
-          <div className="swift-main-form-otp">
+          <div className="swift-login-form-otp">
             <button
-              className="swift-main-form-generate"
+              className="swift-login-form-generate"
               onClick={handleGenerateOtp}
               disabled={isButtonDisabled}
               style={{ cursor: isButtonDisabled ? "not-allowed" : "pointer" }}
@@ -114,7 +114,7 @@ const Reset = () => {
               Generate OTP
             </button>
             <p
-              className="swift-main-form-wait"
+              className="swift-login-form-wait"
               style={{ visibility: textVisible ? "visible" : "hidden" }}
             >
               Wait for {countdown}s to generate again
@@ -123,7 +123,7 @@ const Reset = () => {
           <CustomInput
             labelText="One Time Password"
             type="number"
-            classname="swift-main-form-otp-input"
+            classname="swift-login-form-otp-input"
             name="otp"
             placeholder="123456"
             maxLength="6"
@@ -154,7 +154,7 @@ const Reset = () => {
             labelText="PIN"
             type="number"
             name="pin"
-            classname="swift-main-form-pin-input"
+            classname="swift-login-form-pin-input"
             placeholder="1235"
             maxLength="4"
             errormsg="PIN should be atleast 4 digits"
@@ -172,7 +172,7 @@ const Reset = () => {
             labelText="Confirm PIN"
             type="number"
             name="confirmpin"
-            classname="swift-main-form-confirmpin-input"
+            classname="swift-login-form-confirmpin-input"
             placeholder="1235"
             maxLength="4"
             errormsg="PIN should be atleast 4 digits"
@@ -193,7 +193,7 @@ const Reset = () => {
         {/* <button onClick={handleBackClick}>Go Back</button> */}
         <CustomButton
           text="Reset"
-          className="swift-main-form-btn"
+          className="swift-login-form-btn"
           onClick={handleSubmit}
           disabled={isResetButtonDisabled}
           style={{ cursor: isResetButtonDisabled ? "not-allowed" : "default" }}

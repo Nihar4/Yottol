@@ -2,11 +2,11 @@ import React from "react";
 
 const Info = () => {
   return (
-    <div className="swift-main-info-wrapper">
-      <div className="swift-main-info">
+    <div className="swift-login-info-wrapper">
+      <div className="swift-login-info">
         <h3>Taking advantage of the AI revolution</h3>
-        <div className="swift-main-info-inner">
-          <div className="swift-main-info-1">
+        <div className="swift-login-info-inner">
+          <div className="swift-login-info-1">
             <p>
               Use our proprietary developed Recurrent Neural Network{" "}
               <b>(RNN)</b> deep learning model using{" "}
@@ -31,7 +31,7 @@ const Info = () => {
               not compromising on returns.
             </p>
           </div>
-          <div className="swift-main-info-2">
+          <div className="swift-login-info-2">
             <p>
               Fully regulated, our Machine Learning execution systems have
               in-built safety parameters which do now allow deviation which

@@ -89,11 +89,11 @@ const Login = () => {
   };
 
   return (
-    <div className="swift-main">
+    <div className="swift-login">
       <Info />
-      <div className="swift-main-form">
-        <div className="swift-main-form-div-1">
-          <div className="swift-main-loginform-heading">
+      <div className="swift-login-form">
+        <div className="swift-login-form-div-1">
+          <div className="swift-login-loginform-heading">
             <p>
               <i style={{ fontWeight: 300 }}>swift</i>
               folios
@@ -103,7 +103,7 @@ const Login = () => {
           <CustomInput
             labelText="Email"
             type="email"
-            classname="swift-main-form-email-input"
+            classname="swift-login-form-email-input"
             name="email"
             placeholder="abc@gmail.com"
             onInputChange={handleInputChange}
@@ -114,9 +114,9 @@ const Login = () => {
             style={{ visibility: emailerror != "error" ? "visible" : "hidden" }}
           />
 
-          <div className="swift-main-loginform-otp">
+          <div className="swift-login-loginform-otp">
             <button
-              className="swift-main-form-generate"
+              className="swift-login-form-generate"
               onClick={handleGenerateOtp}
               disabled={isButtonDisabled}
               style={{ cursor: isButtonDisabled ? "not-allowed" : "pointer" }}
@@ -124,7 +124,7 @@ const Login = () => {
               Generate OTP
             </button>
             <p
-              className="swift-main-form-wait"
+              className="swift-login-form-wait"
               style={{ visibility: textVisible ? "visible" : "hidden" }}
             >
               Wait for {countdown}s to generate again
@@ -134,7 +134,7 @@ const Login = () => {
           <CustomInput
             labelText="One Time Password"
             type="number"
-            classname="swift-main-form-otp-input"
+            classname="swift-login-form-otp-input"
             name="otp"
             placeholder="123456"
             maxLength="6"
@@ -150,7 +150,7 @@ const Login = () => {
         {/* <button onClick={handleBackClick}>Go Back</button> */}
         <CustomButton
           text="Next"
-          className="swift-main-form-btn"
+          className="swift-login-form-btn"
           onClick={handleSubmit}
           disabled={isNextButtonDisabled}
           style={{ cursor: isNextButtonDisabled ? "not-allowed" : "default" }}

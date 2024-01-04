@@ -1,4 +1,4 @@
-.swift-main-form-heading {
+.swift-login-form-heading {
   color: #011627;
   font-family: Open Sans;
   font-size: 20px;
@@ -8,7 +8,7 @@
   letter-spacing: -1.2px;
   /* margin-bottom: 10px; */
 }
-.swift-main-form-reset {
+.swift-login-form-reset {
   color: #011627;
   font-family: Open Sans;
   font-size: 12px;
@@ -21,9 +21,9 @@
   /* margin-bottom: 5px; */
 }
 
-.swift-main-form-confirmpin-input,
-.swift-main-form-pin-input,
-.swift-main-form-otp-input {
+.swift-login-form-confirmpin-input,
+.swift-login-form-pin-input,
+.swift-login-form-otp-input {
   width: 160px;
   height: 50px;
 }

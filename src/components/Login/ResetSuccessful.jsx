@@ -12,18 +12,18 @@ const ResetSuccessful = () => {
   };
 
   return (
-    <div className="swift-main">
+    <div className="swift-login">
       <Info />
-      <div className="swift-main-form">
-        <div className="swift-main-form-div-1">
-          <div className="swift-main-loginform-heading">
+      <div className="swift-login-form">
+        <div className="swift-login-form-div-1">
+          <div className="swift-login-loginform-heading">
             <p>
               <i style={{ fontWeight: 300 }}>swift</i>
               folios
             </p>
           </div>
         </div>
-        <div className="swift-main-form-svg">
+        <div className="swift-login-form-svg">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ const ResetSuccessful = () => {
         </div>
         {/* <button onClick={handleBackClick}>Go Back</button> */}
         <Link to="/login">
-          <CustomButton text="Login Again" className="swift-main-form-btn" />
+          <CustomButton text="Login Again" className="swift-login-form-btn" />
         </Link>
       </div>
     </div>

@@ -25,7 +25,7 @@ body {
   height: 100%;
 }
 
-.swift-main {
+.swift-login {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,13 +35,13 @@ body {
   padding: 50px 55px;
 }
 
-.swift-main-info-wrapper {
+.swift-login-info-wrapper {
   height: 100%;
   width: 40%;
 
   display: flex;
 }
-.swift-main-info {
+.swift-login-info {
   display: flex;
   flex-direction: column;
   row-gap: 15px;
@@ -53,13 +53,13 @@ body {
   flex-shrink: 0;
   align-self: flex-end;
 }
-.swift-main-info-inner {
+.swift-login-info-inner {
   display: flex;
   flex-direction: row;
 
   column-gap: 30px;
 }
-.swift-main-info p {
+.swift-login-info p {
   color: rgba(1, 22, 39, 0.7);
   font-family: "Open Sans";
   font-size: 12px;
@@ -70,7 +70,7 @@ body {
   margin-bottom: 15px;
 }
 
-.swift-main-info h3 {
+.swift-login-info h3 {
   color: #011627;
   font-family: Open Sans;
   font-size: 20px;
@@ -80,7 +80,7 @@ body {
   letter-spacing: -1.2px;
 }
 
-.swift-main-info-2 {
+.swift-login-info-2 {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -94,7 +94,7 @@ body {
   line-height: normal;
 }
 
-.swift-main-info-2 p {
+.swift-login-info-2 p {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: -0.7px;
@@ -106,7 +106,7 @@ body {
   letter-spacing: -1px;
 }
 
-.swift-main-form {
+.swift-login-form {
   /* border: 2px solid; */
   height: 100%;
   min-height: 500px;
@@ -121,11 +121,11 @@ body {
   justify-content: space-between;
 }
 
-.swift-main-form-div-1 {
+.swift-login-form-div-1 {
   /* border: 2px solid; */
   flex-grow: 1;
 }
-.swift-main-loginform-heading {
+.swift-login-loginform-heading {
   color: #011627;
   font-family: Open Sans;
   font-size: 20px;
@@ -136,10 +136,10 @@ body {
   padding-bottom: 30px;
 }
 
-.swift-main-loginform-otp {
+.swift-login-loginform-otp {
   padding-top: 35px;
 }
-.swift-main-form-generate {
+.swift-login-form-generate {
   color: #011627;
   font-family: Open Sans;
   font-size: 14px;
@@ -152,7 +152,7 @@ body {
   cursor: pointer;
   background: none;
 }
-.swift-main-form-wait {
+.swift-login-form-wait {
   color: #011627;
   font-family: Open Sans;
   font-size: 12px;
@@ -163,35 +163,35 @@ body {
   margin-bottom: 17px;
 }
 
-.swift-main-form-btn {
+.swift-login-form-btn {
   width: 300px;
   height: 50px;
   margin-top: 30px;
   /* align-self: flex-end; */
 }
 
-.swift-main-form-otp-input {
+.swift-login-form-otp-input {
   width: 160px;
   height: 50px;
 }
 
-.swift-main-form-email-input {
+.swift-login-form-email-input {
   width: 100%;
   /* border: 2px solid; */
   height: 50px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .swift-main-info-wrapper {
+  .swift-login-info-wrapper {
     width: 50%;
     margin: auto;
   }
 
-  .swift-main-info {
+  .swift-login-info {
     width: 100%;
   }
 
-  .swift-main-form {
+  .swift-login-form {
     margin: auto;
   }
 }
@@ -202,45 +202,45 @@ body {
     /* overflow: auto; */
   }
 
-  .swift-main {
+  .swift-login {
     padding: 10px;
     flex-direction: column;
     row-gap: 20px;
   }
 
-  .swift-main-info-wrapper,
-  .swift-main-form {
+  .swift-login-info-wrapper,
+  .swift-login-form {
     margin: auto;
     justify-content: center;
     height: fit-content;
   }
-  .swift-main-form {
+  .swift-login-form {
     min-height: 500px;
   }
 
-  .swift-main-info-wrapper {
+  .swift-login-info-wrapper {
     width: 100%;
   }
-  .swift-main-info {
+  .swift-login-info {
     flex-direction: column;
   }
 
-  .swift-main-info-inner {
+  .swift-login-info-inner {
     flex-direction: column;
     row-gap: 20px;
   }
-  .swift-main-info-2 {
+  .swift-login-info-2 {
     width: 100%;
     flex-direction: column;
   }
 
-  .swift-main-info-wrapper {
+  .swift-login-info-wrapper {
     order: 1;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .swift-main {
+  .swift-login {
     padding: 10px;
   }
   body {
@@ -249,27 +249,27 @@ body {
 }
 
 @media only screen and (max-width: 380px) {
-  .swift-main-form-btn {
+  .swift-login-form-btn {
     width: 250px;
     height: 50px;
   }
 }
 
 @media only screen and (max-width: 330px) {
-  .swift-main-form-btn {
+  .swift-login-form-btn {
     width: 200px;
     height: 50px;
   }
 }
 
 @media (min-width: 900px) and (max-height: 608px) {
-  .swift-main {
+  .swift-login {
     padding: 20px 55px;
   }
-  .swift-main-form {
+  .swift-login-form {
     padding: 20px 30px 20px 30px;
   }
-  .swift-main-form-btn {
+  .swift-login-form-btn {
     margin-top: 20px;
   }
 }
