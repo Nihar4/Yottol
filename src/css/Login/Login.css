@@ -225,6 +225,23 @@ svg:hover {
     height: 100%;
     /* overflow: auto; */
   }
+  .swift-login-main {
+    padding-top: 0px;
+  }
+
+  .backButton-div {
+    width: 100%;
+    display: none;
+  }
+
+  .backButton {
+    width: 14.152px;
+    height: 25px;
+    flex-shrink: 0;
+    fill: rgba(1, 22, 39, 0.5);
+    padding-left: 55px;
+    display: none;
+  }
 
   .swift-login {
     padding: 10px;
