@@ -10,30 +10,11 @@ const CustomInput = ({
   placeholder,
   maxLength = 100,
   onInputChange,
-  errormsg,
+  classname,
   style = {},
+  style1 = {},
 }) => {
   const [value, setValue] = useState("");
-  const [error, setError] = useState("");
-
-  const handleBlur = () => {
-    switch (type) {
-      case "email":
-        validateEmail();
-        break;
-      case "number":
-        validateNumber();
-        break;
-      case "password":
-        validatePassword();
-        break;
-      case "text":
-        validateText();
-        break;
-      default:
-        break;
-    }
-  };
 
   const handleChange = (e) => {
     let inputValue = e.target.value;
@@ -44,39 +25,6 @@ const CustomInput = ({
     setValue(inputValue);
   };
 
-  const validateEmail = () => {
-    if (!value.includes("@") || !value.includes(".")) {
-      setError(errormsg);
-    } else {
-      setError("");
-    }
-  };
-
-  const validateNumber = () => {
-    console.log(value.length, value, maxLength);
-    if (isNaN(value) || value.length != maxLength) {
-      setError(errormsg);
-    } else {
-      setError("");
-    }
-  };
-
-  const validatePassword = () => {
-    if (value.length < 8) {
-      setError(errormsg);
-    } else {
-      setError("");
-    }
-  };
-
-  const validateText = () => {
-    if (!value.trim()) {
-      setError(errormsg);
-    } else {
-      setError("");
-    }
-  };
-
   return (
     <div style={style}>
       <CustomLabel labelText={labelText} style={{}} />
@@ -84,14 +32,12 @@ const CustomInput = ({
         type={type}
         value={value}
         name={name}
+        classname={classname}
         placeholder={placeholder}
         onChange={handleChange}
-        onBlur={handleBlur}
         maxLength={maxLength}
-        style={{}}
+        style={style1}
       />
-      {error && <CustomError errorText={error} style={{}} />}
-      {error == "" && <CustomError errorText="NO" style={{ color: "#FFF" }} />}
     </div>
   );
 };

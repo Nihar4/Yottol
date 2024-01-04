@@ -18,7 +18,6 @@ input::-webkit-inner-spin-button {
 body {
   width: 100vw;
   height: 100vh;
-  /* overflow: hidden; */
   font-family: "Open Sans";
 }
 #root {
@@ -27,7 +26,6 @@ body {
 }
 
 .swift-main {
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,19 +33,15 @@ body {
   height: 100%;
   overflow: hidden;
   padding: 2.2rem 55px;
-  /* padding: 35px 55px; */
 }
 
 .swift-main-info-wrapper {
   height: 100%;
   width: 40%;
-  /* border: 2px solid black; */
+
   display: flex;
-  /* justify-self: flex-end; */
-  /* padding: 60px 0px 60px 60px; */
 }
 .swift-main-info {
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   row-gap: 15px;
@@ -55,16 +49,15 @@ body {
   background: #f1f1f1;
   box-shadow: 0px 0px 10px 0px rgba(1, 22, 39, 0.1);
   width: 100%;
-  /* height: fit-content; */
+
   padding: 30px 45px;
   flex-shrink: 0;
   align-self: flex-end;
 }
 .swift-main-info-inner {
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: row;
-  /* padding-top: 16px; */
+
   column-gap: 30px;
 }
 .swift-main-info p {
@@ -87,21 +80,15 @@ body {
   line-height: normal;
   letter-spacing: -1.2px;
 }
-.swift-main-info-1 {
-  /* border: 2px solid black; */
-  /* width: 500px; */
-}
+
 .swift-main-info-2 {
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   width: 25%;
-  /* height: 112px; */
-  /* padding: 10px; */
+
   flex-shrink: 0;
-  /* margin: 10px; */
-  /* margin-left: 20px; */
+
   color: rgba(1, 22, 39, 0.7);
   font-family: Open Sans;
   font-style: normal;
@@ -121,58 +108,26 @@ body {
 }
 
 .swift-main-form {
-  /* border: 2px solid red; */
-  /* width: 38%; */
+  /* border: 2px solid; */
   height: 100%;
+  min-height: 500px;
   display: flex;
-  /* align-items: flex-end; */
   font-family: "Open Sans";
   flex-shrink: 0;
   border-radius: 40px;
   background: #fff;
   box-shadow: 0px 0px 5px 0px rgba(1, 22, 39, 0.15);
-  /* display: flex; */
   flex-direction: column;
   padding: 20px 30px 30px 30px;
-  justify-content: space-between;
-  /* justify-content: flex-end; */
-  /* padding: 45px 55px; */
-  /* border: 2px solid red; */
-}
-
-.swift-main-form-div {
-  border: 2px solid black;
-  /* width: 95%; */
-  height: 100%;
-  flex-shrink: 0;
-  border-radius: 40px;
-  background: #fff;
-  box-shadow: 0px 0px 5px 0px rgba(1, 22, 39, 0.15);
-  display: flex;
-  flex-direction: column;
-  padding: 20px 30px 25px 30px;
   justify-content: space-between;
 }
 
 .swift-main-form-div-1 {
-  /* border: 2px solid black; */
-  /* height: 90%; */
-  /* padding: 30px; */
+  /* border: 2px solid; */
+  flex-grow: 1;
 }
-.swift-main-form-div-2 {
-  /* border: 2px solid black; */
-  /* justify-content: flex-end; */
-  /* align-self: flex-end; */
-  /* align-items: flex-end; */
-  /* height: 10%; */
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center;
-  padding-bottom: 30px; */
-  /* padding-bottom: 30px; */
-}
-
-.swift-main-form-heading {
+.swift-main-loginform-heading {
+  /* border: 2px solid; */
   color: #011627;
   font-family: Open Sans;
   font-size: 20px;
@@ -180,19 +135,11 @@ body {
   font-weight: 700;
   line-height: normal;
   letter-spacing: -1.2px;
-  /* margin-bottom: 10px; */
+  padding-bottom: 30px;
 }
-.swift-main-form-reset {
-  color: #011627;
-  font-family: Open Sans;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.65px;
-  padding-top: 12px;
-  padding-bottom: 20px;
-  /* margin-bottom: 5px; */
+
+.swift-main-loginform-otp {
+  padding-top: 35px;
 }
 .swift-main-form-generate {
   color: #011627;
@@ -203,6 +150,9 @@ body {
   line-height: normal;
   letter-spacing: -0.8px;
   margin-bottom: 0px;
+  border: none;
+  cursor: pointer;
+  background: none;
 }
 .swift-main-form-wait {
   color: #011627;
@@ -215,20 +165,22 @@ body {
   margin-bottom: 17px;
 }
 
-.swift-main-form-reset-btn {
-  border-radius: 45px;
-  background: #000fff;
-  border: none;
+.swift-main-form-btn {
   width: 300px;
   height: 50px;
-  flex-shrink: 0;
-  color: #fff;
-  font-family: Open Sans;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -1px;
+  margin-top: 30px;
+}
+
+.swift-main-form-otp-input {
+  width: 160px;
+  height: 50px;
+}
+
+.swift-main-form-email-input {
+  width: 100%;
+  border: 2px solid;
+
+  height: 50px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -242,7 +194,6 @@ body {
   }
 
   .swift-main-form {
-    /* width: 40%; */
     margin: auto;
   }
 }
@@ -299,14 +250,14 @@ body {
 }
 
 @media only screen and (max-width: 380px) {
-  .swift-main-form-reset-btn {
+  .swift-main-form-btn {
     width: 250px;
     height: 50px;
   }
 }
 
 @media only screen and (max-width: 330px) {
-  .swift-main-form-reset-btn {
+  .swift-main-form-btn {
     width: 200px;
     height: 50px;
   }
