@@ -1,0 +1,313 @@
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/opensans/v22/mem8YaGs126MiZpBA-UFVZ0b.woff2")
+    format("woff2");
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  /* overflow: hidden; */
+  font-family: "Open Sans";
+}
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.swift-main {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 2.2rem 55px;
+  /* padding: 35px 55px; */
+}
+
+.swift-main-info-wrapper {
+  height: 100%;
+  width: 40%;
+  /* border: 2px solid black; */
+  display: flex;
+  /* justify-self: flex-end; */
+  /* padding: 60px 0px 60px 60px; */
+}
+.swift-main-info {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  border-radius: 40px;
+  background: #f1f1f1;
+  box-shadow: 0px 0px 10px 0px rgba(1, 22, 39, 0.1);
+  width: 100%;
+  /* height: fit-content; */
+  padding: 30px 45px;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+.swift-main-info-inner {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: row;
+  /* padding-top: 16px; */
+  column-gap: 30px;
+}
+.swift-main-info p {
+  color: rgba(1, 22, 39, 0.7);
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.7px;
+  margin-bottom: 15px;
+}
+
+.swift-main-info h3 {
+  color: #011627;
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.2px;
+}
+.swift-main-info-1 {
+  /* border: 2px solid black; */
+  /* width: 500px; */
+}
+.swift-main-info-2 {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 25%;
+  /* height: 112px; */
+  /* padding: 10px; */
+  flex-shrink: 0;
+  /* margin: 10px; */
+  /* margin-left: 20px; */
+  color: rgba(1, 22, 39, 0.7);
+  font-family: Open Sans;
+  font-style: normal;
+  line-height: normal;
+}
+
+.swift-main-info-2 p {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+}
+
+.safe {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.swift-main-form {
+  /* border: 2px solid red; */
+  /* width: 38%; */
+  height: 100%;
+  display: flex;
+  /* align-items: flex-end; */
+  font-family: "Open Sans";
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(1, 22, 39, 0.15);
+  /* display: flex; */
+  flex-direction: column;
+  padding: 20px 30px 30px 30px;
+  justify-content: space-between;
+  /* justify-content: flex-end; */
+  /* padding: 45px 55px; */
+  /* border: 2px solid red; */
+}
+
+.swift-main-form-div {
+  border: 2px solid black;
+  /* width: 95%; */
+  height: 100%;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(1, 22, 39, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px 25px 30px;
+  justify-content: space-between;
+}
+
+.swift-main-form-div-1 {
+  /* border: 2px solid black; */
+  /* height: 90%; */
+  /* padding: 30px; */
+}
+.swift-main-form-div-2 {
+  /* border: 2px solid black; */
+  /* justify-content: flex-end; */
+  /* align-self: flex-end; */
+  /* align-items: flex-end; */
+  /* height: 10%; */
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center;
+  padding-bottom: 30px; */
+  /* padding-bottom: 30px; */
+}
+
+.swift-main-form-heading {
+  color: #011627;
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1.2px;
+  /* margin-bottom: 10px; */
+}
+.swift-main-form-reset {
+  color: #011627;
+  font-family: Open Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.65px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+  /* margin-bottom: 5px; */
+}
+.swift-main-form-generate {
+  color: #011627;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.8px;
+  margin-bottom: 0px;
+}
+.swift-main-form-wait {
+  color: #011627;
+  font-family: Open Sans;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.65px;
+  margin-bottom: 17px;
+}
+
+.swift-main-form-reset-btn {
+  border-radius: 45px;
+  background: #000fff;
+  border: none;
+  width: 300px;
+  height: 50px;
+  flex-shrink: 0;
+  color: #fff;
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .swift-main-info-wrapper {
+    width: 50%;
+    margin: auto;
+  }
+
+  .swift-main-info {
+    width: 100%;
+  }
+
+  .swift-main-form {
+    /* width: 40%; */
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    height: 100%;
+  }
+
+  .swift-main {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .swift-main-info-wrapper,
+  .swift-main-form {
+    margin: auto;
+    justify-content: center;
+    height: fit-content;
+  }
+
+  .swift-main-info-wrapper {
+    width: 100%;
+  }
+  .swift-main-info {
+    flex-direction: column;
+  }
+
+  .swift-main-info-inner {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .swift-main-info-2 {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .swift-main-info-wrapper {
+    order: 1;
+  }
+
+  .swift-main-form-div {
+    row-gap: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .swift-main {
+    padding: 10px;
+  }
+  body {
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .swift-main-form-reset-btn {
+    width: 250px;
+    height: 50px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .swift-main-form-reset-btn {
+    width: 200px;
+    height: 50px;
+  }
+}
