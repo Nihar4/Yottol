@@ -6,7 +6,7 @@ const CustomButton = ({ style, text, className, onClick }) => {
     background: "#000FFF",
     color: "#FFF",
     fontFamily: "Open Sans",
-    fontSize: "20px",
+    fontSize: "18px",
     fontStyle: "normal",
     fontWeight: 700,
     lineHeight: "normal",

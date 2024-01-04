@@ -133,7 +133,10 @@ const Reset = () => {
           />
           <CustomError
             errorText={otperror}
-            style={{ visibility: otperror != "error" ? "visible" : "hidden" }}
+            style={{
+              visibility: otperror != "error" ? "visible" : "hidden",
+              // visibility: otperror ? "visible" : "hidden",
+            }}
           />
           <CustomButton
             text="Validate"
@@ -160,7 +163,10 @@ const Reset = () => {
           />
           <CustomError
             errorText={pinerror}
-            style={{ visibility: pinerror != "error" ? "visible" : "hidden" }}
+            style={{
+              visibility: pinerror != "error" ? "visible" : "hidden",
+              // visibility: pinerror ? "visible" : "hidden",
+            }}
           />
           <CustomInput
             labelText="Confirm PIN"
@@ -180,6 +186,7 @@ const Reset = () => {
             errorText={confirmpinerror}
             style={{
               visibility: confirmpinerror != "error" ? "visible" : "hidden",
+              // visibility: confirmpinerror ? "visible" : "hidden",
             }}
           />
         </div>

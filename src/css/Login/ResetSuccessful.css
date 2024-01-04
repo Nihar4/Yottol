@@ -1,8 +1,16 @@
 .swift-main-form-svg {
+  /* border: 2px solid; */
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
   align-items: center;
+  margin: auto;
   height: 100%;
+  flex-grow: 50;
+}
+
+.swift-main-form-svg p {
+  font-size: 12px;
 }
