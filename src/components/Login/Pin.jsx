@@ -3,13 +3,28 @@ import "../../css/Login/Pin.css";
 import CustomInput from "../CustomComponents/CustomInput/CustomInput";
 import CustomButton from "../CustomComponents/CustomButton/CustomButton";
 import CustomError from "../CustomComponents/CustomError/CustomError";
-import Info from "../CustomComponents/Info";
 import { Link, useNavigate } from "react-router-dom";
-import BackButton from "../CustomComponents/BackButton";
+import BackButton from "../Backbutton/BackButton";
+import InfoBox from "../InfoBox/InfoBox";
 
 const Pin = () => {
   const navigate = useNavigate();
-
+  const style1={
+    fontSize: "12px",
+    border: "1.5px solid #011627",
+    borderRadius: "49px",
+    backgroundColor: "transparent",
+    padding: "20px 16px",
+    display: "block",
+    marginBottom: "2px",
+    marginTop: "2px",
+    marginLeft: "-19px",
+    // height: "50px",
+    flexshrink: "0",
+    letterSpacing: "-0.8px",
+    fontStyle: "normal",
+    fontWeigth:"400",
+  }
   const [formValues, setFormValues] = useState({});
   const [pinerror, setPinError] = useState("error");
 
@@ -31,7 +46,9 @@ const Pin = () => {
     <div className="swift-login-main">
       <BackButton />
       <div className="swift-login">
-        <Info />
+      <div className="swift-signup-main-info">
+          <InfoBox />
+        </div>
         <div className="swift-login-form">
           <div className="swift-login-form-div-1">
             <div className="swift-login-loginform-heading">
@@ -48,7 +65,7 @@ const Pin = () => {
               name="pin"
               placeholder="1234"
               onInputChange={handleInputChange}
-              style={{}}
+              style1={style1}
             />
             <div className="swift-login-form-error">
               <CustomError

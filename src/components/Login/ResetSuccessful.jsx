@@ -1,16 +1,19 @@
 import React from "react";
 import "../../css/Login/ResetSuccessful.css";
 import CustomButton from "../CustomComponents/CustomButton/CustomButton";
-import Info from "../CustomComponents/Info";
+
 import { Link } from "react-router-dom";
-import BackButton from "../CustomComponents/BackButton";
+import BackButton from "../Backbutton/BackButton";
+import InfoBox from "../InfoBox/InfoBox";
 
 const ResetSuccessful = () => {
   return (
     <div className="swift-login-main">
       <BackButton />
       <div className="swift-login">
-        <Info />
+      <div className="swift-signup-main-info">
+          <InfoBox />
+        </div>
         <div className="swift-login-form">
           <div className="swift-login-form-div-1">
             <div className="swift-login-loginform-heading">

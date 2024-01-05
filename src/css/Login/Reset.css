@@ -28,10 +28,10 @@
   height: 50px;
 }
 
-@media (min-width: 900px) and (max-height: 608px) {
+@media (min-width: 900px) and (max-height: 680px) {
   .swift-login-form-reset {
     padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     /* margin-bottom: 5px; */
   }
 }

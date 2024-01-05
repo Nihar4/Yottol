@@ -10,27 +10,10 @@ const CustomInputBox = ({
   maxLength,
   classname,
 }) => {
-  const defaultStyle = {
-    // width: "160px",
-    fontSize: "12px",
-    border: "1.5px solid #011627",
-    borderRadius: "49px",
-    backgroundColor: "transparent",
-    padding: "20px 16px",
-    display: "block",
-    marginBottom: "2px",
-    marginTop: "2px",
-    marginLeft: "-19px",
-    // height: "50px",
-    flexshrink: "0",
-    letterSpacing: "-0.8px",
-    fontStyle: "normal",
-    fontWeigth: "400",
-  };
 
   return (
     <input
-      style={{ ...defaultStyle, ...style }}
+      style={style}
       type={type}
       value={value}
       name={name}
