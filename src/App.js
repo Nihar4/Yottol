@@ -7,8 +7,6 @@ import ResetSuccessful from './components/Login/ResetSuccessful';
 import Home from './components/Home/Home';
 
 
-
-
 function App() {
   return (
     <Router>
@@ -25,4 +23,3 @@ function App() {
 
 export default App;
 
-//helloo

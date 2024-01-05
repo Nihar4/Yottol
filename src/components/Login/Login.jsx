@@ -10,9 +10,6 @@ import BackButton from "../CustomComponents/BackButton";
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleBackClick = () => {
-    navigate(-1);
-  };
   const [formValues, setFormValues] = useState({});
 
   const [otperror, setOtpError] = useState("error");
@@ -152,7 +149,7 @@ const Login = () => {
               style={{ visibility: otperror != "error" ? "visible" : "hidden" }}
             />
           </div>
-          {/* <button onClick={handleBackClick}>Go Back</button> */}
+
           <CustomButton
             text="Next"
             className="swift-login-form-btn"
