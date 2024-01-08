@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../CustomSearch/CustomSearch.css";
 
 const CustomSearch = ({ options }) => {
   const [searchQuery, setSearchQuery] = useState("");

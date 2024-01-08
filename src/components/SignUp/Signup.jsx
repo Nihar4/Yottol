@@ -1,18 +1,44 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../../css/Signup/Signup.css";
-import CustomLabel from "../CustomComponents/CustomLabel/CustomLabel";
-import CustomInputBox from "../CustomComponents/CustomInputBox/CustomInputBox";
-import CustomError from "../CustomComponents/CustomError/CustomError";
+import CustomInput from "../CustomComponents/CustomInput/CustomInput";
 import CustomButton from "../CustomComponents/CustomButton/CustomButton";
+import CustomError from "../CustomComponents/CustomError/CustomError";
 import InfoBox from "../InfoBox/InfoBox";
+import { useLocation, useNavigate } from "react-router-dom";
 import BackButton from "../Backbutton/BackButton";
+
 const Signup = () => {
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location.pathname]);
+
+  return (
+    <>
+      {location.pathname === "/signup/status" && <Signup_status />}
+      {location.pathname !== "/signup/status" && (
+        <div className="swift-login-main">
+          <BackButton />
+          <div className="swift-login">
+            <div className="swift-signup-main-info">
+              <InfoBox />
+            </div>
+            {location.pathname === "/signup" && <Signup_main />}
+            {location.pathname === "/signup/pin" && <Signup_pin />}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+const Signup_main = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [otp, setOtp] = useState("");
-  const [Emailerror, setEmailError] = useState("error");
-  const [opterror, setotpError] = useState("error");
+
+  const [formValues, setFormValues] = useState({});
+
+  const [otperror, setOtpError] = useState("error");
+  const [emailerror, setEmailError] = useState("error");
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(true);
@@ -21,30 +47,27 @@ const Signup = () => {
   const [textVisible, setTextVisible] = useState(false);
   const [countdown, setCountdown] = useState(0);
 
-  let validateEmail = false;
-  let validateOtp = false;
+  const handleInputChange = (name, value) => {
+    setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
+  };
 
-  const validateEmailFunc = () => {
+  const ValidateEmail = () => {
+    const email = formValues["email"];
+
     const emailRegex = /^[a-zA-Z0-9. _-]+@[a-zA-Z0-9. -]+\.[a-zA-Z]{2,4}$/;
 
     if (email.trim() === "") {
-      setEmailError("Email can not be empty");
-    } else {
-      if (!emailRegex.test(email)) {
-        setEmailError("Email is not valid");
-      } else {
-        validateEmail=true;
-        setEmailError("");
-      }
+      return "Email can not be empty";
+    }
+    if (!emailRegex.test(email)) {
+      return "Email is not Valid";
     }
   };
 
   const handleGenerateOtp = () => {
-    if (isButtonDisabled) {
-      return;
-    }
-    validateEmailFunc();
-    if (validateEmail) {
+    const error = ValidateEmail();
+    if (!error) {
+      setEmailError("error");
       setOtpVisible(true);
       setCountdown(30);
       setTextVisible(true);
@@ -59,6 +82,8 @@ const Signup = () => {
         clearInterval(countdownInterval);
         setIsButtonDisabled(false);
       }, 30000);
+    } else {
+      setEmailError(error);
     }
   };
 
@@ -68,152 +93,217 @@ const Signup = () => {
     }
   }, [countdown]);
 
-  const submitHandler = (e) => {
-    // console.log(isNextButtonDisabled);
-    e.preventDefault();
-    if (isNextButtonDisabled) {
-      return;
+  const handleSubmit = (e) => {
+    if (isNextButtonDisabled) return;
+    setOtpError("error");
+    if (formValues["otp"] && formValues["otp"].length == 6) {
+      if (formValues["otp"] == "123456") navigate("/signup/pin");
+      else setOtpError("OTP is not correct");
+    } else {
+      setOtpError("OTP should be 6 length");
     }
 
-    if (otp.trim() === "") {
-      setotpError("OTP can not be empty");
-    } else {
-      if (otp != 123456) {
-        setotpError("OTP is not correct");
-      } else {
-        validateOtp = true;
-        setotpError("");
-      }
-    }
-    console.log(validateEmail);
-    console.log(validateOtp);
-    if ( validateOtp) {
-      navigate("/signup/pin");
-    }
-  };
-  const goBack = () => {
-    navigate(-1);
+    console.log(formValues);
   };
 
   return (
-    <div className="main">
-      {/* <div className="backButton-div">
-        <div className="backButton">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="25"
-            viewBox="0 0 15 25"
-            fill="none"
-            onClick={goBack}
+    <div className="swift-login-form">
+      <div className="swift-login-form-div-1">
+        <div className="swift-login-loginform-heading">
+          <p>
+            <i style={{ fontWeight: 300 }}>swift</i>
+            folios
+          </p>
+        </div>
+
+        <CustomInput
+          labelText="Email"
+          type="email"
+          classnameInput="swift-login-form-email-input"
+          name="email"
+          placeholder="abc@gmail.com"
+          onInputChange={handleInputChange}
+        />
+        <CustomError
+          errorText={emailerror}
+          style={{
+            visibility: emailerror != "error" ? "visible" : "hidden",
+          }}
+        />
+
+        <div className="swift-login-loginform-otp">
+          <button
+            className="swift-login-form-generate"
+            onClick={handleGenerateOtp}
+            disabled={isButtonDisabled}
+            style={{ cursor: isButtonDisabled ? "not-allowed" : "pointer" }}
           >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M14.1497 23.3493L12.5012 25L0 12.5011L12.5012 0L14.1519 1.65072L3.30159 12.5011L14.1497 23.3493Z"
-              fill="#011627"
-              fill-opacity="0.5"
-            />
-          </svg>
+            Generate OTP
+          </button>
+          <p
+            className="swift-login-form-wait"
+            style={{ visibility: textVisible ? "visible" : "hidden" }}
+          >
+            Wait for {countdown}s to generate again
+          </p>
         </div>
-      </div>  */}
-            <BackButton />
-      <div className="swift-signup-main">
-        <div className="swift-signup-main-info">
-          <InfoBox />
+
+        <CustomInput
+          labelText="One Time Password"
+          type="number"
+          classnameInput="swift-login-form-pin-input1"
+          name="otp"
+          placeholder="123456"
+          maxLength="6"
+          errormsg="OTP should be atleast 6 digits "
+          onInputChange={handleInputChange}
+          styleDiv={{ visibility: otpVisible ? "visible" : "hidden" }}
+        />
+        <CustomError
+          errorText={otperror}
+          style={{ visibility: otperror != "error" ? "visible" : "hidden" }}
+        />
+      </div>
+
+      <CustomButton
+        text="Next"
+        classname="swift-login-form-btn"
+        onClick={handleSubmit}
+        disabled={isNextButtonDisabled}
+        style={{ cursor: isNextButtonDisabled ? "not-allowed" : "default" }}
+      />
+    </div>
+  );
+};
+
+const Signup_pin = () => {
+  const navigate = useNavigate();
+
+  const [formValues, setFormValues] = useState({});
+
+  const [pinerror, setPinError] = useState("error");
+  const [confirmpinerror, setConfirmPinError] = useState("error");
+
+  const handleInputChange = (name, value) => {
+    setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    setPinError("error");
+    setConfirmPinError("error");
+    if (formValues["pin"] && formValues["pin"].length == 4) {
+      setPinError("error");
+      if (formValues["confirmpin"] && formValues["confirmpin"].length == 4) {
+        setConfirmPinError("error");
+        if (formValues["confirmpin"] != formValues["pin"]) {
+          setConfirmPinError("PIN does not match ");
+        } else {
+          navigate("/signup/status");
+        }
+      } else {
+        setConfirmPinError("PIN should be atleast 4 digits");
+      }
+    } else {
+      setPinError("PIN should be atleast 4 digits");
+    }
+
+    console.log(formValues);
+  };
+
+  return (
+    <div className="swift-login-form">
+      <div className="swift-login-form-div-1">
+        <div className="swift-login-loginform-heading">
+          <p>
+            <i style={{ fontWeight: 300 }}>swift</i>
+            folios
+          </p>
         </div>
-        <div className="swift-signup-main-form">
-          <div className="swift-signup-main-form-div">
-            <div className="swift-signup-main-form-div-1">
-              <div className="swift-signup-main-form-heading">
-                <p>
-                  <i style={{ fontWeight: 300 }}>swift</i>
-                  folios
-                </p>
-              </div>
-              <div className="swift-signup-main-form-email">
-                <div className="swift-signup-main-form-label">
-                  <CustomLabel labelText="Email" />
-                </div>
-                <CustomInputBox
-                  type="email"
-                  value={email}
-                  placeholder="abcx@gmail.com"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                  classname="swift-signup-main-form-email-input"
-                />
-                <div className="swift-signup-main-form-error">
-                  <CustomError
-                    errorText={Emailerror}
-                    style={{
-                      visibility: Emailerror != "error" ? "visible" : "hidden",
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="swift-signup-main-form-otp-info">
-                <div
-                  className="swift-signup-main-form-otp-info-1"
-                  onClick={handleGenerateOtp}
-                  disabled={isButtonDisabled}
-                  style={{
-                    cursor: isButtonDisabled ? "not-allowed" : "pointer",
-                  }}
-                >
-                  Generate OTP
-                </div>
-                <div
-                  className="swift-signup-main-form-otp-info-2"
-                  style={{ visibility: textVisible ? "visible" : "hidden" }}
-                >
-                  Wait for {countdown}s to generate again
-                </div>
-              </div>
-              <div className="swift-signup-main-form-otp">
-                <div className="swift-signup-main-form-label">
-                  <CustomLabel
-                    labelText="One Time Password"
-                    style={{ visibility: otpVisible ? "visible" : "hidden" }}
-                  />
-                </div>
-                <CustomInputBox
-                  type="password"
-                  value={otp}
-                  placeholder="123456"
-                  maxLength="6"
-                  onChange={(e) => {
-                    setOtp(e.target.value);
-                  }}
-                  classname="swift-signup-main-form-otp-input"
-                  style={{ visibility: otpVisible ? "visible" : "hidden" }}
-                />
-                <div className="swift-signup-main-form-error">
-                  <CustomError
-                    errorText={opterror}
-                    style={{
-                      visibility: opterror != "error" ? "visible" : "hidden",
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="swift-signup-main-form-div-2">
-              <CustomButton
-                className="swift-signup-main-form-button"
-                text="Next"
-                onClick={submitHandler}
-                disabled={isNextButtonDisabled}
-                style={{
-                  cursor: isNextButtonDisabled ? "not-allowed" : "default",
-                }}
-              />
+
+        <CustomInput
+          labelText="PIN"
+          type="number"
+          name="pin"
+          classnameInput="swift-login-form-pin-input1"
+          placeholder="1235"
+          maxLength="4"
+          onInputChange={handleInputChange}
+        />
+        <CustomError
+          errorText={pinerror}
+          style={{
+            visibility: pinerror != "error" ? "visible" : "hidden",
+            // visibility: pinerror ? "visible" : "hidden",
+          }}
+        />
+        <CustomInput
+          labelText="Confirm PIN"
+          type="number"
+          name="confirmpin"
+          classnameInput="swift-login-form-pin-input1"
+          placeholder="1235"
+          maxLength="4"
+          onInputChange={handleInputChange}
+          styleDiv={{
+            marginTop: "15px",
+          }}
+        />
+        <CustomError
+          errorText={confirmpinerror}
+          style={{
+            visibility: confirmpinerror != "error" ? "visible" : "hidden",
+          }}
+        />
+      </div>
+
+      <CustomButton
+        text="Sign-up"
+        classname="swift-login-form-btn"
+        onClick={handleSubmit}
+      />
+    </div>
+  );
+};
+
+const Signup_status = () => {
+  const navigate = useNavigate();
+  const clickHandler = () => {
+    navigate("/dashboard");
+  };
+  return (
+    <div className="swift-signup-status-main">
+      <div className="swift-signup-status-heading">
+        <p>
+          <i style={{ fontWeight: 300 }}>swift</i>
+          folios
+        </p>
+      </div>
+      <div className="swift-signup-status-info">
+        <div className="swift-signup-status-info-1">
+          <div>
+            <div>Account status</div>
+            <div style={{ fontWeight: 800 }}>Pending Approval</div>
+            <div style={{ fontWeight: 800 }}>
+              We are trying to get you onboarded as soon as possible.
             </div>
           </div>
+          <div>
+            Please be on the look our for any email from us which might indicate
+            additional steps that you need to complete. Otherwise, we should get
+            you over the line in 3 working days.
+          </div>
+          <div>
+            For anything else, kindly reach out to us on{" "}
+            <span style={{ fontWeight: 700 }}>accounts@swiftfolios.co.uk</span>
+          </div>
+        </div>
+        <div className="swift-signup-status-info-2">
+          <button className="swift-signup-status-button" onClick={clickHandler}>
+            Open Dashboard
+          </button>
         </div>
       </div>
-     </div>
+    </div>
   );
 };
 

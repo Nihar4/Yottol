@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CustomLabel from "../CustomLabel/CustomLabel";
 import CustomInputBox from "../CustomInputBox/CustomInputBox";
-import CustomError from "../CustomError/CustomError";
+import "../CustomInput/CustomInput.css";
 
 const CustomInput = ({
   labelText,
@@ -10,33 +10,41 @@ const CustomInput = ({
   placeholder,
   maxLength = 100,
   onInputChange,
-  classname,
-  style = {},
-  style1 = {},
+  classnameDiv,
+  classnameLabel,
+  classnameInput,
+  styleDiv = {},
+  styleInput = {},
+  styleLabel = {},
 }) => {
   const [value, setValue] = useState("");
 
   const handleChange = (e) => {
     let inputValue = e.target.value;
-    onInputChange && onInputChange(name, inputValue);
+
     if (type === "number" && maxLength) {
       inputValue = inputValue.slice(0, maxLength);
     }
+    onInputChange && onInputChange(name, inputValue);
     setValue(inputValue);
   };
 
   return (
-    <div style={style}>
-      <CustomLabel labelText={labelText} style={{}} />
+    <div className={classnameDiv} style={styleDiv}>
+      <CustomLabel
+        className={classnameLabel}
+        labelText={labelText}
+        style={{ styleLabel }}
+      />
       <CustomInputBox
         type={type}
         value={value}
         name={name}
-        classname={classname}
+        classname={classnameInput}
         placeholder={placeholder}
         onChange={handleChange}
         maxLength={maxLength}
-        style={style1}
+        style={styleInput}
       />
     </div>
   );

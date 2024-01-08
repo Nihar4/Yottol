@@ -1,4 +1,5 @@
 import React from "react";
+import "../CustomInputBox/CustomInputBox.css";
 
 const CustomInputBox = ({
   type,
@@ -10,7 +11,6 @@ const CustomInputBox = ({
   maxLength,
   classname,
 }) => {
-
   return (
     <input
       style={style}
@@ -20,7 +20,7 @@ const CustomInputBox = ({
       onChange={onChange}
       placeholder={placeholder}
       maxLength={maxLength}
-      className={classname}
+      className={"swift-custom-input-box " + classname}
     />
   );
 };
